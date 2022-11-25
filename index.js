@@ -82,7 +82,7 @@ client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) {
     return
   }
-  const slashComms = interaction.client.commands.get(interaction.commandName);
+  const slashComms = client.slashCommands.get(interaction.commandName);
   if (!slashComms) {
 		console.error(`No command matching ${interaction.commandName} was found.`);
 		return;
