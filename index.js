@@ -110,6 +110,27 @@ message.channel.send(`${message.member}, Conuwulations you have proceeded to lev
        }
     }
 })
+
+client.on("interactionCreate", async interaction => {
+  if(!interaction.isCommand()) return;
+  
+  const slashCommand = client.commands.get(interaction.commandName)
+
+  if(!command) return;
+
+  try {
+    command.run(interaction)
+  } catch(err){
+    if(err) console.log(err)
+
+    await interaction.reply({
+      content: "An error has occured",
+      ephemeral: true
+    })
+  }
+})
+
+
 mongoose.connect(process.env['mongodbsrv'],{
   useNewUrlParser: true,
   useUnifiedTopology: true
