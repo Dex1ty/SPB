@@ -116,10 +116,10 @@ client.on("interactionCreate", async interaction => {
   
   const slashCommand = client.commands.get(interaction.commandName)
 
-  if(!command) return;
+  if(!slashCommand) return;
 
   try {
-    command.run(interaction)
+    slashCommand.run(interaction)
   } catch(err){
     if(err) console.log(err)
 
