@@ -42,6 +42,20 @@ client.on("guildMemberRemove", (member, guild) => {
 
 
 client.on('ready', () => {
+  const guildTest = "1045550548826472491"
+  const guildTests = client.guilds.cache.get(guildTest)
+
+  if(guildTests){
+    slashComms = guild.commands
+  } else {
+    slashComms = client.application.commands
+  }
+  slashComms.create({
+    name: "ping",
+    description: "Replies with pong"
+  })
+
+
   //PRESENCE - MORE NEEDS TO BE ADDED
   const status = [
   `My prefix is !`,
@@ -60,6 +74,22 @@ client.on('ready', () => {
   console.log("Senpai Bot is now Online.");
   console.log(client.guilds.cache.size)
 }) //Sets the bots presence and logs when the bot is online.
+
+client.on("interactionCreate", async (interaction) => {
+  if (!interaction.isCommand()) {
+    return
+  }
+
+  const { commandName, options } = interaction
+
+  if(commandName === "ping"){
+    interaction.reply({
+      content: "pong",
+      ephemeral: true
+    })
+  }
+})
+
 
 
 
@@ -88,8 +118,8 @@ message.channel.send(`${message.member}, Conuwulations you have proceeded to lev
 
 
     //Finding command
-    const commandName = args.shift().toLowerCase();
-    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+    const commandNames = args.shift().toLowerCase();
+    const command = client.commands.get(commandNames) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandNames));
     if(!command) return;                
 
 
@@ -109,14 +139,6 @@ message.channel.send(`${message.member}, Conuwulations you have proceeded to lev
         }else command.run(client, message, args, ProfileData, Timeout);
        }
     }
-
-
-    const slashComms = client.application.commands
-
-    slashComms.create({
-      name: "ping",
-      description: "Replies with pong"
-    })
   })
 
 
