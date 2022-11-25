@@ -10,7 +10,7 @@ module.exports = {
 
         const joindate = new Discord.MessageEmbed();
     
-        joindate.EmbedAuthorData(`Join date for ${user.username}`)
+        joindate.setAuthor(`Join date for ${user.username}`)
         .setThumbnail(user.avatarURL({ dynamic: false }))
         .addFields({
         name: `Date that ${user.username} joined the server`,

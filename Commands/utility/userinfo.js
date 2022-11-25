@@ -11,7 +11,7 @@ const { guild, channel } = message
 
         const profile = new Discord.MessageEmbed();
     
-        profile.EmbedAuthorData(`User info for ${user.username}`)
+        profile.setAuthor(`User info for ${user.username}`)
             .setThumbnail(user.avatarURL({ dynamic: false }))            
             .setColor("AQUA")
             .addFields({

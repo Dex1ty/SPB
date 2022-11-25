@@ -7,7 +7,7 @@ module.exports = {
         const vs11 = process.env["vs10"];
         const about = new Discord.MessageEmbed();
     
-        about.EmbedAuthorData(`Information about me... Senpai Bot!! T-thanks for using me!!`)
+        about.setAuthor(`Information about me... Senpai Bot!! T-thanks for using me!!`)
             .setDescription("I-I was created to be an awesome bot for all to use.")          
             .setColor("AQUA")
             .addFields({
