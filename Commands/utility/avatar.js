@@ -10,7 +10,7 @@ module.exports = {
          .setTitle(`${member.username}'s Avatar`)
          .setImage(avatar)
          .setColor("AQUA")
-         .setFooter(`Requested by ${message.author.username} `);
+         .EmbedFooterData(`Requested by ${message.author.username} `);
          message.reply({embeds: [userEmbed] });
     }
 }
