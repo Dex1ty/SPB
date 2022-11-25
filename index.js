@@ -109,26 +109,23 @@ message.channel.send(`${message.member}, Conuwulations you have proceeded to lev
         }else command.run(client, message, args, ProfileData, Timeout);
        }
     }
-})
 
-client.on("interactionCreate", async interaction => {
-  if(!interaction.isCommand()) return;
-  
-  const slashCommand = client.commands.get(interaction.commandName)
 
-  if(!slashCommand) return;
+    const guildTest = "1045550548826472491"
+    const guildTests = client.guilds.cache.get(guildTest)
 
-  try {
-    slashCommand.run(interaction)
-  } catch(err){
-    if(err) console.log(err)
-
-    await interaction.reply({
-      content: "An error has occured",
-      ephemeral: true
+    if(guildTests){
+      slashComms = guild.commands
+    } else {
+      slashComms = client.application.commands
+    }
+    slashComms.create({
+      name: "ping",
+      description: "Replies with pong"
     })
-  }
-})
+  })
+
+
 
 
 mongoose.connect(process.env['mongodbsrv'],{
