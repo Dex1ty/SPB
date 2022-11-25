@@ -16,7 +16,7 @@ module.exports = {
     const rank = new canvacord.Rank() // Build the Rank Card
         .setAvatar(target.displayAvatarURL({format: 'png', size: 512}))
         .setCurrentXP(user.xp - Levels.xpFor(user.level)) // Current User Xp
-        .setRequiredXP(Levels.xpFor(user.level + 1)) // We calculate the required Xp for the next level
+        .setRequiredXP(Levels.xpFor(user.level + 1) - user.xp) // We calculate the required Xp for the next level
         .setRank(user.position) // Position of the user on the leaderboard
         .setLevel(user.level) // Current Level of the user
         .setProgressBar("#1ABC9C")
