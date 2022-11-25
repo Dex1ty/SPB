@@ -37,12 +37,12 @@ const path = require("path");
 client.slashCommands = new Collection();
 
 const commandsPath = path.join(__dirname, 'SlashCommands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+const commandFiles = readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const slashComm = require(filePath);
 if("data" in slashComm && "run" in slashComm) {
-client.commands.set(command.data.name, command);
+client.slashCommands.set(command.data.name, command);
 } else {
   console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "run" property.`);
 }
