@@ -46,7 +46,7 @@ client.on('ready', () => {
   const guildTests = client.guilds.cache.get(guildTest)
 
   if(guildTests){
-    slashComms = guild.commands
+    slashComms = guildTests.commands
   } else {
     slashComms = client.application.commands
   }
