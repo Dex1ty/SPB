@@ -111,14 +111,8 @@ message.channel.send(`${message.member}, Conuwulations you have proceeded to lev
     }
 
 
-    const guildTest = "1045550548826472491"
-    const guildTests = client.guilds.cache.get(guildTest)
+    const slashComms = client.application.commands
 
-    if(guildTests){
-      slashComms = guild.commands
-    } else {
-      slashComms = client.application.commands
-    }
     slashComms.create({
       name: "ping",
       description: "Replies with pong"
