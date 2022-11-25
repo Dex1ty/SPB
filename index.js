@@ -33,6 +33,23 @@ for(const folder of commandFolders) {
   }
 }
 
+const path = require("path");
+client.slashCommands = new Collection();
+
+const commandsPath = path.join(__dirname, 'SlashCommands');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+for (const file of commandFiles) {
+	const filePath = path.join(commandsPath, file);
+	const slashComm = require(filePath);
+if("data" in slashComm && "run" in slashComm) {
+client.commands.set(command.data.name, command);
+} else {
+  console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "run" property.`);
+}
+}
+
+
+
 client.on("error", console.error);
 
 client.on("guildMemberRemove", (member, guild) => {
@@ -42,21 +59,7 @@ client.on("guildMemberRemove", (member, guild) => {
 
 
 client.on('ready', () => {
-  const guildTest = "1045550548826472491"
-  const guildTests = client.guilds.cache.get(guildTest)
-
-  if(guildTests){
-    slashComms = guildTests.commands
-  } else {
-    slashComms = client.application.commands
-  }
-  slashComms.create({
-    name: "ping",
-    description: "Replies with pong"
-  })
-
-
-  //PRESENCE - MORE NEEDS TO BE ADDED
+   //PRESENCE - MORE NEEDS TO BE ADDED
   const status = [
   `My prefix is !`,
   `Vibing with Dex1ty!`,
@@ -79,15 +82,19 @@ client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) {
     return
   }
+  const slashComms = interaction.client.commands.get(interaction.commandName);
+  if (!slashComms) {
+		console.error(`No command matching ${interaction.commandName} was found.`);
+		return;
+	}
 
-  const { commandName, options } = interaction
-
-  if(commandName === "ping"){
-    interaction.reply({
-      content: "pong",
-      ephemeral: true
-    })
-  }
+	try {
+		await slashComms.run(interaction);
+	} catch (error) {
+		console.error(error);
+		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+	}
+  
 })
 
 
