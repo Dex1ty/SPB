@@ -42,6 +42,7 @@ for(const folder of commandFolders) {
 
 //Slash Commands
 const path = require("path");
+const { ActivityTypes } = require("discord.js/typings/enums");
 client.slashCommands = new Collection();
 
 const commandsPath = path.join(__dirname, 'SlashCommands');
@@ -90,7 +91,7 @@ client.on('ready', () => {
   setInterval(() => {
     if(index === status.length) index = 0;
     const statusQ = status[index];
-    client.user.setPresence({ activities: [{ name: `${PREFIX}help | ${statusQ}`, type: "PLAYING" }], status: "dnd" }); 
+    client.user.setPresence({ activities: [{ name: `${PREFIX}help | ${statusQ}`, type: ActivityTypes.PLAYING }], status: "dnd" }); 
     index++;
   }, 20000)
   console.log("Senpai Bot is now Online.");
