@@ -1,11 +1,11 @@
 const KeepAlive = require("./server");
-const { Client, IntentsBitField , Collection, ActivityType, REST, Routes } = require('discord.js');
+const { Client, Intents , Collection, ActivityType, REST, Routes } = require('discord.js');
 
 
-const { Player } = require("discord-player")
+
 
 const client = new Client({
-	intents: new IntentsBitField(32767)
+	intents: new Intents(32767)
 })
 const token = process.env['token'];
 const PREFIX = process.env['prefix'];
