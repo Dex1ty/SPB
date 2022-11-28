@@ -18,7 +18,7 @@ module.exports = {
 
             await interaction.reply({
                 embeds: [
-                    new Discord.MessageEmbed()
+                    new Discord.EmbedBuilder()
                         .setDescription(`Paused **${currentSong.title}**`)
                         .setThumbnail(currentSong.thumbnail)
                 ]

@@ -18,7 +18,7 @@ module.exports = {
         if(!args[0]) return message.reply("B-baka, please state what you would like to rate.")
         const rated = args.join(' ');
         const number = numbers[Math.floor(Math.random() * numbers.length)];
-        const embed = new Discord.MessageEmbed();      
+        const embed = new Discord.EmbedBuilder();      
             embed.setTitle(`I rate ${rated} ${number}/10`)
                 .setColor("AQUA"),
             message.reply({ embeds: [embed] });

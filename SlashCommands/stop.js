@@ -18,7 +18,7 @@ module.exports = {
 
             await interaction.reply({
                 embeds: [
-                    new Discord.MessageEmbed()
+                    new Discord.EmbedBuilder()
                         .setTitle("Bye for now!")
                         .setImage("https://tenor.com/bXgEm.gif")
                 ]

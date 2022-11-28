@@ -6,7 +6,7 @@ module.exports = {
     cooldown: 1000 * 5,
     description: "daily coins baybee",
   async run(client, message, args, ProfileData){
-    const invEmbed = new Discord.MessageEmbed();
+    const invEmbed = new Discord.EmbedBuilder();
     const member = message.mentions.users.first() || message.author;
     const memberTarger = message.guild.members.cache.get(member.tag);    
 

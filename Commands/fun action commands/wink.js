@@ -7,7 +7,7 @@ module.exports = {
               fetch('https://some-random-api.ml/animu/wink')
             .then(res => res.json())
             .then(json => {
-                const wink = new Discord.MessageEmbed();
+                const wink = new Discord.EmbedBuilder();
 
                 wink.setImage(`${json.link}`)
                     .setColor("AQUA");

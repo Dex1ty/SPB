@@ -21,7 +21,7 @@ module.exports = {
 
             await interaction.reply({
                 embeds: [
-                    new Discord.MessageEmbed()
+                    new Discord.EmbedBuilder()
                     .setDescription(`**Currently Playing:**\n\` ${currentSong.title} - <@${currentSong.requestedBy.id}>\n\n**Queue:**\n${queueString}`)
                     .setThumbnail(currentSong.thumbnail)
                 ]

@@ -8,7 +8,7 @@ module.exports = {
         const user = message.mentions.users.first() || message.member.user
         const member = guild.members.cache.get(user.id);
 
-        const joindate = new Discord.MessageEmbed();
+        const joindate = new Discord.EmbedBuilder();
     
         joindate.setAuthor(`Join date for ${user.username}`)
         .setThumbnail(user.avatarURL({ dynamic: false }))

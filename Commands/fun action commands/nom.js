@@ -20,7 +20,7 @@ module.exports = {
         ];
         const image = images[Math.floor(Math.random() * images.length)];
         const member = message.mentions.users.first();
-        const embed = new Discord.MessageEmbed();
+        const embed = new Discord.EmbedBuilder();
         if (member == null) return message.reply("Please state a user you would like to nom.");
 
         else if (message.author == member) return message.reply("You cannot nom yourself! haha....");

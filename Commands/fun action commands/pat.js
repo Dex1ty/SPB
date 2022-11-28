@@ -10,8 +10,8 @@
 
     
         const member = message.mentions.users.first();
-        const embed = new Discord.MessageEmbed();
-        const selfPat = new Discord.MessageEmbed();
+        const embed = new Discord.EmbedBuilder();
+        const selfPat = new Discord.EmbedBuilder();
         if (member == null) return message.reply("Please state a user you would like to pat.");          
         else if (message.author == member){
           selfPat.setTitle(`UwU I'll Pat you! :D`)

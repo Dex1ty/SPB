@@ -5,7 +5,7 @@ module.exports = {
   async run(client, message, args){
     const moment = require("moment");
       const Discord = require("discord.js");
-      const embed = new Discord.MessageEmbed();
+      const embed = new Discord.EmbedBuilder();
       embed.setTitle(`${message.guild.name}'s Serverinfo`)
       .setThumbnail(message.guild.iconURL())
       .setColor("AQUA")
