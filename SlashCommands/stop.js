@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const Discord = require("discord.js");
 
 module.exports = {
-    data: SlashCommandBuilder()
+    data: new SlashCommandBuilder()
         .setName("stop")
         .setDescription("Stops the music and leaves the voice channel."),
         async run(interaction) {

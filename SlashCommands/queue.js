@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const Discord = require("discord.js");
 
 module.exports = {
-    data: SlashCommandBuilder()
+    data: new SlashCommandBuilder()
         .setName("queue")
         .setDescription("Shows the current songs in the queue."),
         async run(interaction) {
