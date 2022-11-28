@@ -54,7 +54,7 @@ for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const slashComm = require(filePath);
 if("data" in slashComm && "run" in slashComm) {
-client.slashCommands.set(slashComm.data.name, slashComm.toJSON());
+client.slashCommands.set(slashComm.data.toJSON(), slashComm);
 } else {
   console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "run" property.`);
 }
