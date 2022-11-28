@@ -25,7 +25,7 @@ module.exports = {
         
     rank.build()
         .then(data => {
-        const attachment = new Discord.MessageAttachment(data, "RankCard.png");
+        const attachment = new Discord.AttachmentBuilder(data, "RankCard.png");
         message.reply({ files: [attachment] })
     });
     }
