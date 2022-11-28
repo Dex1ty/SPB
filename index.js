@@ -42,7 +42,6 @@ for(const folder of commandFolders) {
 
 //Slash Commands
 const path = require("path");
-const { ActivityTypes } = require("discord.js/typings/enums");
 client.slashCommands = new Collection();
 
 const commandsPath = path.join(__dirname, 'SlashCommands');
