@@ -1,6 +1,8 @@
 const KeepAlive = require("./server");
 const { Client, Intents, Collection } = require('discord.js');
-//fix
+
+const { REST } = require("discord.js")
+const { Player } = require("discord-player")
 
 const client = new Client({
 	intents: new Intents(32767)
@@ -21,6 +23,9 @@ const Levels = require("discord-xp");
 Levels.setURL(process.env['mongodbsrv']);
 
 
+
+
+//Prefix Commands
 client.commands = new Collection();
 const commandFolders = readdirSync('./Commands');
 
@@ -33,6 +38,9 @@ for(const folder of commandFolders) {
   }
 }
 
+
+
+//Slash Commands
 const path = require("path");
 client.slashCommands = new Collection();
 
@@ -49,7 +57,18 @@ client.slashCommands.set(slashComm.data.name, slashComm);
 }
 
 
+//Music
+client.player = new Player(client, {
+  ytdlOptions: {
+    quality: "highestaudio",
+    highWaterMark: 1 << 25
+  }
+})
 
+
+
+
+//EVENTS
 client.on("error", console.error);
 
 client.on("guildMemberRemove", (member, guild) => {
@@ -150,7 +169,7 @@ message.channel.send(`${message.member}, Conuwulations you have proceeded to lev
 
 
 
-
+//Mongoose Database Connection
 mongoose.connect(process.env['mongodbsrv'],{
   useNewUrlParser: true,
   useUnifiedTopology: true
