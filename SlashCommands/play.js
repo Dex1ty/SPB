@@ -12,7 +12,7 @@ module.exports = {
         .setDescription("Searches for a song of your choosing")
         .addStringOption((option) => {
           option
-            .setName("Query")
+            .setName("query")
             .setDescription("Search any keywords")
             .setRequired(true);
         });
@@ -23,7 +23,7 @@ module.exports = {
         .setDescription("Play a youtube playlist")
         .addStringOption((option) => {
           option
-            .setName("URL")
+            .setName("url")
             .setDescription("Playlist URL")
             .setRequired(true);
         });
@@ -34,7 +34,7 @@ module.exports = {
         .setDescription("Plays a song from youtube")
         .addStringOption((option) =>
           option
-            .setName("URL")
+            .setName("url")
             .setDescription("URL of the song")
             .setRequired(true)
         );
@@ -49,8 +49,8 @@ module.exports = {
         if(!queue.connection) await queue.connect(interaction.member.voice.channel)
 
         const embed = new Discord.MessageEmbed();
-        if(interaction.options.getSubcommand() === "Song") {
-            let url = interaction.options.getString("URL");
+        if(interaction.options.getSubcommand() === "song") {
+            let url = interaction.options.getString("url");
 
             const result = await client.player.search(url, {
                 requestedBy: interaction.user,
@@ -71,8 +71,8 @@ module.exports = {
                  .setAuthor(interaction.user)
 
         }
-        else if(interaction.options.getSubcommand() === "Playlist") {
-            let url = interaction.options.getString("URL");
+        else if(interaction.options.getSubcommand() === "playlist") {
+            let url = interaction.options.getString("url");
 
             const result = await client.player.search(url, {
                 requestedBy: interaction.user,
@@ -93,8 +93,8 @@ module.exports = {
                  .setAuthor(interaction.user)
 
         }
-        else if(interaction.options.getSubcommand() === "Search") {
-            let url = interaction.options.getString("Query");
+        else if(interaction.options.getSubcommand() === "search") {
+            let url = interaction.options.getString("query");
 
             const result = await client.player.search(url, {
                 requestedBy: interaction.user,
