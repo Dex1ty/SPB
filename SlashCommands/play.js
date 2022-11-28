@@ -113,12 +113,12 @@ module.exports = {
             embed.setDescription(`Added **[${song.title}](${song.url})** to the queue`)
                  .setThumbnail(song.thumbnail)
                  .setFooter({text: `Duration ${song.duration}`})
-                 .setAuthor({name: interaction.user.tag})
+                 .setAuthor({name: interaction.user.tag })
 
         }
         
 
-        if(!queue.playing) await queue.play();
+        if(queue.connection) await queue.play();
 
         await interaction.reply({
             embeds: [embed]
