@@ -5,8 +5,7 @@ const { REST } = require("discord.js")
 const { Player } = require("discord-player")
 
 const client = new Client({
-	intents: [Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.USE_APPLICATION_COMMANDS
-  ]
+	intents: new [, Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.USE_APPLICATION_COMMANDS]
 })
 const token = process.env['token'];
 const PREFIX = process.env['prefix']
