@@ -4,11 +4,11 @@ const Discord = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("Play")
+    .setName("play")
     .setDescription("Play a song")
     .addSubcommand((subcommand) => {
       subcommand
-        .setName("Search")
+        .setName("search")
         .setDescription("Searches for a song of your choosing")
         .addStringOption((option) => {
           option
@@ -19,7 +19,7 @@ module.exports = {
     })
     .addSubcommand((subcommand) => {
       subcommand
-        .setName("Playlist")
+        .setName("playlist")
         .setDescription("Play a youtube playlist")
         .addStringOption((option) => {
           option
@@ -30,7 +30,7 @@ module.exports = {
     })
     .addSubcommand((subcommand) => {
       subcommand
-        .setName("Song")
+        .setName("song")
         .setDescription("Plays a song from youtube")
         .addStringOption((option) =>
           option
