@@ -7,37 +7,37 @@ module.exports = {
     .setName("play")
     .setDescription("Play a song")
     .addSubcommand((subcommand) => {
-      subcommand
+      return subcommand
         .setName("search")
         .setDescription("Searches for a song of your choosing")
         .addStringOption((option) => {
-          option
+          return option
             .setName("query")
             .setDescription("Search any keywords")
             .setRequired(true);
         });
     })
     .addSubcommand((subcommand) => {
-      subcommand
+      return subcommand
         .setName("playlist")
         .setDescription("Play a youtube playlist")
         .addStringOption((option) => {
-          option
+          return option
             .setName("url")
             .setDescription("Playlist URL")
             .setRequired(true);
         });
     })
     .addSubcommand((subcommand) => {
-      subcommand
+      return subcommand
         .setName("song")
         .setDescription("Plays a song from youtube")
-        .addStringOption((option) =>
-          option
+        .addStringOption((option) => {
+          return option
             .setName("url")
             .setDescription("URL of the song")
             .setRequired(true)
-        );
+    });
     }),
 
     async run(interaction) {
