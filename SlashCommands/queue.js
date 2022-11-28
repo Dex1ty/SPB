@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("queue")
         .setDescription("Shows the current songs in the queue."),
-        async run(interaction) {
+        async run(client, interaction) {
             const queue = client.player.getQueue(interaction.guild)
 
             if(!queue || !queue.playing) {
