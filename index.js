@@ -1,5 +1,5 @@
 const KeepAlive = require("./server");
-const { Client, IntentsBitField , Collection } = require('discord.js');
+const { Client, IntentsBitField , Collection, ActivityType } = require('discord.js');
 
 const { REST } = require("discord.js")
 const { Player } = require("discord-player")
@@ -90,7 +90,7 @@ client.on('ready', () => {
   setInterval(() => {
     if(index === status.length) index = 0;
     const statusQ = status[index];
-    client.user.setPresence({ activities: [{ name: `${PREFIX}help | ${statusQ}`, type: ActivityTypes.PLAYING }], status: "dnd" }); 
+    client.user.setPresence({ activities: [{ name: `${PREFIX}help | ${statusQ}`, type: ActivityType.Playing }], status: "dnd" }); 
     index++;
   }, 20000)
   console.log("Senpai Bot is now Online.");
