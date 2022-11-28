@@ -5,7 +5,7 @@ const { REST } = require("discord.js")
 const { Player } = require("discord-player")
 
 const client = new Client({
-	intents: new Intents(32767)
+	intents: [Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILDS, Intents.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MEMBERS]
 })
 const token = process.env['token'];
 const PREFIX = process.env['prefix']
@@ -58,7 +58,12 @@ client.slashCommands.set(slashComm.data.name, slashComm);
 
 
 //Music
-client.player = new Player(client)
+client.player = new Player(client, {
+  ytdlOptions: {
+    quality: "highestaudio",
+    highWaterMark: 1 << 25
+  }
+})
 
 
 
