@@ -1,6 +1,6 @@
 const KeepAlive = require("./server");
 const { Client, Intents , Collection, ActivityType } = require('discord.js');
-const { REST, Routes } = require("")
+const { REST, Routes } = require("@discordjs/rest")
 
 
 
