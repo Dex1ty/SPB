@@ -8,7 +8,11 @@ const client = new Client({
 	intents: new IntentsBitField(32767)
 })
 const token = process.env['token'];
-const PREFIX = process.env['prefix']
+const PREFIX = process.env['prefix'];
+const clientId = process.env['clientID'];
+const guildId = process.env['guildID'] //TEMP FOR TESTING PURPOSES
+
+
 
 const { readdirSync, read } = require("fs");
 
