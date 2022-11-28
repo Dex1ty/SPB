@@ -69,7 +69,7 @@ module.exports = {
             embed.setDescription(`Added **[${song.title}](${song.url})** to the queue`)
                  .setThumbnail(song.thumbnail)
                  .setFooter({text: `Duration ${song.duration}`})
-                 .setAuthor(interaction.user)
+                 .setAuthor({name: interaction.user.tag})
 
         }
         else if(interaction.options.getSubcommand() === "playlist") {
@@ -91,7 +91,7 @@ module.exports = {
             embed.setDescription(`Added **[${playlist.title}](${playlist.url})** to the queue`)
                  .setThumbnail(playlist.thumbnail)
                  .setFooter({text: `Duration ${playlist.duration}`})
-                 .setAuthor(interaction.user)
+                 .setAuthor({name: interaction.user.tag})
 
         }
         else if(interaction.options.getSubcommand() === "search") {
@@ -113,7 +113,7 @@ module.exports = {
             embed.setDescription(`Added **[${song.title}](${song.url})** to the queue`)
                  .setThumbnail(song.thumbnail)
                  .setFooter({text: `Duration ${song.duration}`})
-                 .setAuthor(interaction.user)
+                 .setAuthor({name: interaction.user.tag})
 
         }
         
