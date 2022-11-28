@@ -58,12 +58,7 @@ client.slashCommands.set(slashComm.data.name, slashComm);
 
 
 //Music
-client.player = new Player(client, {
-  ytdlOptions: {
-    quality: "highestaudio",
-    highWaterMark: 1 << 25
-  }
-})
+client.player = new Player(client)
 
 
 
