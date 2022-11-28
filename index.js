@@ -46,6 +46,7 @@ for(const folder of commandFolders) {
 
 //Slash Commands
 const path = require("path");
+const slashCommands = []
 client.slashCommands = new Collection();
 
 const commandsPath = path.join(__dirname, 'SlashCommands');
@@ -55,7 +56,7 @@ for (const file of commandFiles) {
 	const slashComm = require(filePath);
 if("data" in slashComm && "run" in slashComm) {
 client.slashCommands.set(slashComm.data.name, slashComm);
-client.slashCommands.push(slashComm.data.toJSON());
+slashCommands.push(slashComm.data.toJSON());
 } else {
   console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "run" property.`);
 }
@@ -65,12 +66,12 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 (async () => {
 	try {
-		console.log(`Started refreshing ${client.slashCommands.length} application (/) commands.`);
+		console.log(`Started refreshing ${slashCommands.length} application (/) commands.`);
 
 		// The put method is used to fully refresh all commands in the guild with the current set
 		const data = await rest.put(
 			Routes.applicationGuildCommands(clientId, guildId),
-			{ body: client.slashCommands },
+			{ body: slashCommands },
 		);
 
 		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
