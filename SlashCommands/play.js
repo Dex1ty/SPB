@@ -41,7 +41,7 @@ module.exports = {
     });
     }),
 
-    async run(client, interaction) {
+    async run({client, interaction}) {
         if(!interaction.member.voice.channel) {
             await interaction.reply("You must be in a voice channel to use this command.")
         }

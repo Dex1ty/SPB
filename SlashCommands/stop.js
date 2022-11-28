@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("stop")
         .setDescription("Stops the music and leaves the voice channel."),
-        async run(client, interaction) {
+        async run({client, interaction}) {
             const queue = client.player.getQueue(interaction.guild)
 
             if(!queue){
