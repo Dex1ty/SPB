@@ -6,7 +6,7 @@ module.exports = {
     const Discord = require("discord.js");
     
     const sugID = process.env['suggestionID'];
-    const suggestEmbed = new Discord.EmbedBuilder();
+    const suggestEmbed = new Discord.MessageEmbed();
 
     const suggestion = args.slice(0).join(' ');
 

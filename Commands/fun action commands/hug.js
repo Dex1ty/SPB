@@ -10,7 +10,7 @@
 
     
         const member = message.mentions.users.first();
-        const embed = new Discord.EmbedBuilder();
+        const embed = new Discord.MessageEmbed();
         if (member == null) return message.reply("Please state a user you would like to hug.");
 
         else if (message.author == member) return message.reply("You cannot hug yourself! haha....");

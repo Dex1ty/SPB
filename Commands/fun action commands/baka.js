@@ -4,7 +4,7 @@ module.exports = {
   async run(client, message, args){
       const Discord = require("discord.js")
         const member = message.mentions.users.first();
-        const embed = new Discord.EmbedBuilder();
+        const embed = new Discord.MessageEmbed();
 // MORE CAN BE ADDED, COULDNT FIND ANY AT THE TIME.
 
         var images = [

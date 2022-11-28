@@ -63,13 +63,7 @@ slashCommands.push(slashComm.data.toJSON());
 }
 
 
-//Music
-client.player = new Player(client, {
-  ytdlOptions: {
-    quality: "highestaudio",
-    highWaterMark: 1 << 25
-  }
-})
+
 
 
 

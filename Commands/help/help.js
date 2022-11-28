@@ -4,7 +4,7 @@ module.exports = {
     description: "Say hello to the bot",
   async run(client, message, args){
     const Discord = require("discord.js");
-    const help = new Discord.EmbedBuilder();
+    const help = new Discord.MessageEmbed();
 
         
         help.setTitle("Help")
@@ -12,7 +12,7 @@ module.exports = {
         .setDescription("T-thanks for using me, B-baka! \n There is many commands on this bot. \n **Type !help <Category> for the commands.** \n To find what commands do, go to each category individually. \n If you want to report a bug do !bug and if you would like to suggest anything do !suggest. \n These categories are: \n \`All\` \`General\` \`Fun\` \`Utility\` \`Xp\` \`Economy\`");
 
  
-        const helpall = new Discord.EmbedBuilder();
+        const helpall = new Discord.MessageEmbed();
 
         helpall.setTitle("Bot Commands")
             .setColor("AQUA")
@@ -67,7 +67,7 @@ module.exports = {
             });
 
 
-            const helpgeneral = new Discord.EmbedBuilder();
+            const helpgeneral = new Discord.MessageEmbed();
 
             helpgeneral.setTitle("General Commands")
             .setColor("AQUA")
@@ -84,7 +84,7 @@ module.exports = {
                 inline: false
             });
 
-            const helputility = new Discord.EmbedBuilder();
+            const helputility = new Discord.MessageEmbed();
 
             helputility.setTitle("Utility Commands")//5
             .setColor("AQUA")
@@ -100,7 +100,7 @@ module.exports = {
                 inline: false
             });
 
-            const helpfun = new Discord.EmbedBuilder();
+            const helpfun = new Discord.MessageEmbed();
 
             helpfun.setTitle("Fun Action Commands")//14
             .setColor("AQUA")
@@ -125,7 +125,7 @@ module.exports = {
                 inline: false                       
                 });
 
-                const helpfacts = new Discord.EmbedBuilder();
+                const helpfacts = new Discord.MessageEmbed();
 
                 helpfacts.setTitle("Fact Commands")//9
                 .setColor("AQUA")
@@ -149,7 +149,7 @@ module.exports = {
 
 
 
-                const helpxp = new Discord.EmbedBuilder();
+                const helpxp = new Discord.MessageEmbed();
 
                 helpxp.setTitle("Xp Commands")//2
                 .setColor("AQUA")
@@ -162,7 +162,7 @@ module.exports = {
                     inline: false
                 });
 
-                const helpimage = new Discord.EmbedBuilder();
+                const helpimage = new Discord.MessageEmbed();
 
                 helpimage.setTitle("Image Commands")//11
                 .setColor("AQUA")
@@ -183,7 +183,7 @@ module.exports = {
                     inline: false
                 });
                 
-                const helpeconomy = new Discord.EmbedBuilder();
+                const helpeconomy = new Discord.MessageEmbed();
 
                 helpeconomy.setTitle("Economy Commands")
                 .setColor("AQUA")

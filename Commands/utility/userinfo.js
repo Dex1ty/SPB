@@ -9,7 +9,7 @@ const { guild, channel } = message
         const user = message.mentions.users.first() || message.member.user
         const member = guild.members.cache.get(user.id);
 
-        const profile = new Discord.EmbedBuilder();
+        const profile = new Discord.MessageEmbed();
     
         profile.setAuthor(`User info for ${user.username}`)
             .setThumbnail(user.avatarURL({ dynamic: false }))            

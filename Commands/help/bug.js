@@ -6,7 +6,7 @@ module.exports = {
     const Discord = require("discord.js");
     
     const bugID = process.env['bugreportID'];
-    const bugEmbed = new Discord.EmbedBuilder();
+    const bugEmbed = new Discord.MessageEmbed();
 
     const bug = args.slice(0).join(' ');
 
