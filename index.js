@@ -12,16 +12,6 @@ const PREFIX = process.env['prefix'];
 const clientId = process.env['clientID'];
 const guildId = process.env['guildID'] //TEMP FOR TESTING PURPOSES
 
-//MUSIC
-const { Player } = require("discord-music-player");
-const player = new Player(client, {
-  deafenOnJoin: true,
-  timeout: 120,
-
-})
-client.player = player;
-
-
 
 
 const { readdirSync, read } = require("fs");
